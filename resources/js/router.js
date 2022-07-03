@@ -21,14 +21,17 @@ import Posts from './Pages/Posts';
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: Home
     },
     {
         path: '/about',
+        name: 'about',
         component: About
     },
     {
         path: '/posts',
+        name: 'posts',
         component: Posts
     },
 ]
