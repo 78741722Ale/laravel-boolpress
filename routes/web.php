@@ -38,8 +38,7 @@ Route::get('mailable', function() {
 });
 
 
-// inseriamola come ultima rotta
-// alla fine del file web.php
+// inseriamola come ultima rotta alla fine del file web.php
 Route::get("{any?}", function () {
     return view("guest.home");
 })->where("any", ".*");
@@ -50,6 +49,4 @@ Route::get("{any?}", function () {
 - close registration
 - Model: Category + Table: categories + Controller: Admin/CategoryController + One to Many
 - Model: Tag + Table: tags + Controller: Admin/TagController + Many To Many
-
-
 */
