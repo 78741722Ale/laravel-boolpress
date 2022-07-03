@@ -22,6 +22,9 @@
 </head>
 
 <body>
+
+
+    <!-- DA TOGLIERE -->
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -87,7 +90,7 @@
             </div>
         </div>
     </nav>
-    <!-- Add navigation links -->
+    <!-- ID Root -->
     <div id="root"></div>
 </body>
 
