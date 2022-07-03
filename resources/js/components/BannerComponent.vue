@@ -1,6 +1,6 @@
 <template>
     <div class="p-5 bg-dark text-light">
-        <div class="container">
+        <div class="container-fluid">
             <!-- Titolo -->
             <h1 class="display-3">Boolpress Blog</h1>
             <!-- Lorem -->

@@ -1912,6 +1912,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'About'
 });
@@ -1931,8 +1963,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  data: function data() {
+    return {
+      posts: ''
+    };
+  },
+  methods: {},
+  mounted: function mounted() {
+    var _this = this;
+
+    axios
+    /* Prendo da API quello che mi serve */
+    .get('/api/posts')
+    /* Il responso e faccio un console log */
+    .then(function (response) {
+      console.log(response.data);
+      var posts = response.data.data;
+      _this.posts = posts.slice(0, 4);
+    })["catch"](function (e) {
+      console.log(e);
+    });
+  }
 });
 
 /***/ }),
@@ -2175,7 +2263,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -37816,9 +37903,72 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("About")])
+  return _c("div", { staticClass: "page" }, [
+    _c("div", { staticClass: "p-5 bg-dark text-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("hr", { staticClass: "my-2" }),
+        _vm._v(" "),
+        _c("p", [_vm._v("More info")]),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "lead" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-primary btn-md",
+                attrs: { to: { name: "posts" } },
+              },
+              [_vm._v("Leggi i miei posts")]
+            ),
+          ],
+          1
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(2),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "avatar" }, [
+      _c("img", { attrs: { src: "https://picsum.photos/100/100", alt: "" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "jumbo_text" }, [
+      _c("h1", { staticClass: "display-3" }, [_vm._v("About Me")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v("Lorem ipsum dolor sit amet consectetur."),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "content py-3" }, [
+        _vm._v(
+          "\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, nobis. Error porro alias nemo laborum illum expedita illo, enim rerum nulla? Nobis,\n            aliquam. Sint, quia. Error beatae aut odio? Similique eum error magni, tempore aut, sit eos odit beatae, aliquid cum eius molestias sint non neque.\n            Iusto consequuntur natus ad dolore, neque a obcaecati vero, et, facilis provident sit laudantium dicta. Quisquam optio autem architecto ea laboriosam\n            nostrum nulla maiores assumenda porro officia cupiditate, facilis nemo qui blanditiis ipsa tempora excepturi nisi quasi accusantium. Similique labore sed\n            nemo esse harum corrupti nisi, deleniti tenetur illum obcaecati aut. Provident, perferendis obcaecati.\n        "
+        ),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -37840,9 +37990,78 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Homepage")])
+  return _c("div", { staticClass: "page" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "recent" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h3", { staticClass: "py-3" }, [_vm._v("Articoli Recenti")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.posts, function (element) {
+            return _c("div", { key: element.id, staticClass: "col" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("img", {
+                  attrs: {
+                    src: "/storage/" + element.cover,
+                    alt: element.title,
+                  },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(element.content.slice(0, 100) + " ...") +
+                        "\n                            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Read more")]),
+                ]),
+              ]),
+            ])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mt-4" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { to: { name: "posts" } },
+              },
+              [_vm._v("Vai ai posts")]
+            ),
+          ],
+          1
+        ),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-5 bg-dark text-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("h1", { staticClass: "display-3" }, [_vm._v("Boolpress")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "lead" }, [
+          _vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit."),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -37884,7 +38103,10 @@ var render = function () {
                     return _c("div", { key: post.id, staticClass: "col" }, [
                       _c("div", { staticClass: "product card" }, [
                         _c("img", {
-                          attrs: { src: post.cover, alt: post.title },
+                          attrs: {
+                            src: "/storage/" + post.cover,
+                            alt: post.title,
+                          },
                         }),
                         _vm._v(" "),
                         _c("div", { staticClass: "card-body" }, [
@@ -38113,7 +38335,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "p-5 bg-dark text-light" }, [
-      _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "container-fluid" }, [
         _c("h1", { staticClass: "display-3" }, [_vm._v("Boolpress Blog")]),
         _vm._v(" "),
         _c("p", { staticClass: "lead" }, [
@@ -38158,7 +38380,7 @@ var render = function () {
         [
           _c(
             "div",
-            { staticClass: "container" },
+            { staticClass: "container-fluid" },
             [
               _c(
                 "router-link",

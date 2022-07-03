@@ -14,7 +14,7 @@
                                 <div class="col" v-for="post in postsResponse.data" :key="post.id">
                                     <div class="product card">
                                         <!-- Immagine -->
-                                        <img :src="post.cover" :alt="post.title">
+                                        <img :src="'/storage/' + post.cover" :alt="post.title">
                                         <!-- Corpo del prodotto -->
                                         <div class="card-body">
                                             <!-- Titolo -->
